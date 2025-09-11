@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <style>
+
+    body {
+      --base-size: clamp(18px, 1.5vw, 22px);
+      font-family: nunito, ui-sans-serif, system-ui, -apple-system,
+      BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+      "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol", "Noto Color Emoji";
+      background-color: #262626;
+      color: inherit;
+      color-scheme: light dark;
+      font-size: var(--base-size);
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+      gap: 0;
+      padding: 0;
+      background-color: transparent;
+      justify-content: start;
+    }
+    .card {
+      border-radius: 0.3em;
+      overflow: hidden;
+      border: 1px solid #111;
+      background-color: transparent;
+      margin: 0.5em;
+      display: flex;
+      flex-direction: column;
+    }
+    .label {
+      font-weight: 300;
+      color: #ccc;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      background-color: #202020;
+      padding: 0.7em .7em;
+      border-radius: 0;
+      margin: 0;
+      font-size: 1em;
+    }
+    .values {
+      display: flex;
+      flex-direction: column;
+      font-weight: 300;
+      gap: 0.5em;
+      padding: 0.7em 0.7em;
+      background-color: #1a1a1a;
+      border-top: 1px solid #101010;
+      font-size: 1em;
+    }
+    .values span img { vertical-align: middle; }
+    .green { color: #6eb543; }
+    .yellow-green { color: #9acd32; }
+    .yellow { color: #e8b745; }
+    .orange { color: #f39c12; }
+    .red { color: #e46259; }
+    .blue { color: #71b2f0; }
+    .gray { color: #757575; }
+    a { color: inherit; text-decoration: none; }
+    
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  </head>
+  <body>
+
+  <div class="card-grid">
+  <div class="card">
+  <div class="label"><i class="fas fa-vial"></i>Test code and package</div>
+  <div class="values">
+<span class="gray">main: unknown</span>
+<span class="gray">develop: unknown</span>
+<span class="gray">fix-doc-rules: unknown</span>
+  </div>
+</div>
+<div class="card">
+  <div class="label"><i class="fas fa-vial"></i>Test package on PyPI</div>
+  <div class="values">
+<span class="gray">main: unknown</span>
+<span class="gray">develop: unknown</span>
+<span class="gray">fix-doc-rules: unknown</span>
+  </div>
+</div>
+<div class="card">
+  <div class="label"><i class="fas fa-gauge"></i>Code quality from CodeFactor.io</div>
+  <div class="values">
+<span class="green">main: A</span>
+<span class="green">develop: A</span>
+<span class="gray">fix-doc-rules: unknown</span>
+  </div>
+</div>
+<div class="card">
+  <div class="label"><i class="fas fa-gauge"></i>Maintainability index with radon</div>
+  <div class="values">
+<span class="yellow">main: C (48)</span>
+<span class="yellow">develop: C (47)</span>
+<span class="yellow">fix-doc-rules: C (47)</span>
+  </div>
+</div>
+<div class="card">
+  <div class="label"><i class="fas fa-gauge"></i>Cyclomatic complexity with radon</div>
+  <div class="values">
+<span class="green">main: A (4.1)</span>
+<span class="green">develop: A (4.2)</span>
+<span class="green">fix-doc-rules: A (4.2)</span>
+  </div>
+</div>
+<div class="card">
+  <div class="label"><i class="fas fa-file-code"></i>Source/Logical lines of code</div>
+  <div class="values">
+<span class="orange">main: 1.27 (1,115/876)</span>
+<span class="orange">develop: 1.26 (1,133/896)</span>
+<span class="orange">fix-doc-rules: 1.26 (1,133/896)</span>
+  </div>
+</div>
+<div class="card">
+  <div class="label"><i class="fas fa-file-code"></i>Number of files</div>
+  <div class="values">
+<span class="blue">main: 5</span>
+<span class="blue">develop: 5</span>
+<span class="blue">fix-doc-rules: 5</span>
+  </div>
+</div>
+<div class="card">
+  <div class="label"><i class="fas fa-file-code"></i>Number of functions</div>
+  <div class="values">
+<span class="blue">main: 85</span>
+<span class="blue">develop: 85</span>
+<span class="blue">fix-doc-rules: 85</span>
+  </div>
+</div>
+<div class="card">
+  <div class="label"><i class="fas fa-square-poll-vertical"></i>Unit test coverage from Codecov.io</div>
+  <div class="values">
+<span class="gray">main: unknown</span>
+<span class="gray">develop: unknown</span>
+<span class="gray">fix-doc-rules: unknown</span>
+  </div>
+</div>
+<div class="card">
+  <div class="label"><i class="fas fa-square-poll-vertical"></i>Docstring coverage with interrogate</div>
+  <div class="values">
+<span class="red">main: 3%</span>
+<span class="red">develop: 3%</span>
+<span class="red">fix-doc-rules: 3%</span>
+  </div>
+</div>
+<div class="card">
+  <div class="label"><i class="fas fa-lock"></i>Scan security</div>
+  <div class="values">
+<span class="green">main: passed</span>
+<span class="green">develop: passed</span>
+<span class="gray">fix-doc-rules: unknown</span>
+  </div>
+</div>
+<div class="card">
+  <div class="label"><i class="fas fa-rocket"></i>Publish to PyPI</div>
+  <div class="values">
+<span class="gray">main: unknown</span>
+<span class="gray">develop: unknown</span>
+<span class="gray">fix-doc-rules: unknown</span>
+  </div>
+</div>
+  </div>
+
+  </body>
+  </html>
