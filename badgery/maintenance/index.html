@@ -81,8 +81,16 @@
     .values .item-label.red { color: #e46259; }
     .values .item-label.blue { color: #71b2f0; }
     .values .item-label.gray { color: #757575; }
-    /* Icons inherit label color so they colorize accordingly */
-    .values .item-label .icon { color: currentColor; margin-right: 0.5em; }
+    /* Icons inherit label color; fix a constant width so text aligns */
+    .values .item-label { display: inline-flex; align-items: center; }
+    .values .item-label .icon {
+      color: currentColor;
+      display: inline-block;
+      width: 1.25em; /* fixed width for alignment */
+      text-align: center;
+      margin-right: 0.5em;
+      flex: 0 0 1.25em;
+    }
     .values .item-value {
       white-space: nowrap;
     }
@@ -103,7 +111,7 @@
 
   <div class="card-grid">
   <div class="card">
-  <div class="card-title"><i class="fas fa-vial"></i>Test code and package</div>
+  <div class="card-title"><i class="fas fa-vial"></i>Test code and package (GitHub.com)</div>
   <div class="values">
 <div class="row"><span class="item-label green"><i class="fas fa-crown icon"></i>main</span><span class="item-value green">passed</span></div>
 <div class="row"><span class="item-label green"><i class="fas fa-hammer icon"></i>develop</span><span class="item-value green">passed</span></div>
@@ -131,7 +139,7 @@
   <div class="values">
 <div class="row"><span class="item-label yellow-green"><i class="fas fa-crown icon"></i>main</span><span class="item-value yellow-green">B (74)</span></div>
 <div class="row"><span class="item-label yellow-green"><i class="fas fa-hammer icon"></i>develop</span><span class="item-value yellow-green">B (74)</span></div>
-<div class="row"><span class="item-label yellow-green"><i class="fas fa-code-branch icon"></i>maintenance</span><span class="item-value yellow-green">B (74)</span></div>
+<div class="row"><span class="item-label yellow-green"><i class="fas fa-code-branch icon"></i>maintenance</span><span class="item-value yellow-green">B (73)</span></div>
   </div>
 </div>
 <div class="card">
@@ -139,31 +147,23 @@
   <div class="values">
 <div class="row"><span class="item-label green"><i class="fas fa-crown icon"></i>main</span><span class="item-value green">A (3.9)</span></div>
 <div class="row"><span class="item-label green"><i class="fas fa-hammer icon"></i>develop</span><span class="item-value green">A (3.9)</span></div>
-<div class="row"><span class="item-label green"><i class="fas fa-code-branch icon"></i>maintenance</span><span class="item-value green">A (3.9)</span></div>
+<div class="row"><span class="item-label green"><i class="fas fa-code-branch icon"></i>maintenance</span><span class="item-value green">A (4.0)</span></div>
   </div>
 </div>
 <div class="card">
-  <div class="card-title"><i class="fas fa-file-code"></i>Source/Logical lines of code</div>
+  <div class="card-title"><i class="fas fa-file-code"></i>Source/Logical lines of code (radon)</div>
   <div class="values">
 <div class="row"><span class="item-label yellow"><i class="fas fa-crown icon"></i>main</span><span class="item-value yellow">1.21 (1,338/1,106)</span></div>
 <div class="row"><span class="item-label yellow"><i class="fas fa-hammer icon"></i>develop</span><span class="item-value yellow">1.21 (1,338/1,106)</span></div>
-<div class="row"><span class="item-label yellow"><i class="fas fa-code-branch icon"></i>maintenance</span><span class="item-value yellow">1.21 (1,338/1,106)</span></div>
+<div class="row"><span class="item-label yellow"><i class="fas fa-code-branch icon"></i>maintenance</span><span class="item-value yellow">1.21 (1,434/1,186)</span></div>
   </div>
 </div>
 <div class="card">
-  <div class="card-title"><i class="fas fa-file-code"></i>Number of files</div>
+  <div class="card-title"><i class="fas fa-file-code"></i>Functions/Files count (radon)</div>
   <div class="values">
-<div class="row"><span class="item-label blue"><i class="fas fa-crown icon"></i>main</span><span class="item-value blue">13</span></div>
-<div class="row"><span class="item-label blue"><i class="fas fa-hammer icon"></i>develop</span><span class="item-value blue">13</span></div>
-<div class="row"><span class="item-label blue"><i class="fas fa-code-branch icon"></i>maintenance</span><span class="item-value blue">13</span></div>
-  </div>
-</div>
-<div class="card">
-  <div class="card-title"><i class="fas fa-file-code"></i>Number of functions</div>
-  <div class="values">
-<div class="row"><span class="item-label blue"><i class="fas fa-crown icon"></i>main</span><span class="item-value blue">99</span></div>
-<div class="row"><span class="item-label blue"><i class="fas fa-hammer icon"></i>develop</span><span class="item-value blue">99</span></div>
-<div class="row"><span class="item-label blue"><i class="fas fa-code-branch icon"></i>maintenance</span><span class="item-value blue">99</span></div>
+<div class="row"><span class="item-label green"><i class="fas fa-crown icon"></i>main</span><span class="item-value green">7.62 (99/13)</span></div>
+<div class="row"><span class="item-label green"><i class="fas fa-hammer icon"></i>develop</span><span class="item-value green">7.62 (99/13)</span></div>
+<div class="row"><span class="item-label green"><i class="fas fa-code-branch icon"></i>maintenance</span><span class="item-value green">8.08 (105/13)</span></div>
   </div>
 </div>
 <div class="card">
@@ -183,7 +183,7 @@
   </div>
 </div>
 <div class="card">
-  <div class="card-title"><i class="fas fa-lock"></i>Scan security</div>
+  <div class="card-title"><i class="fas fa-lock"></i>Scan security (GitHub.io)</div>
   <div class="values">
 <div class="row"><span class="item-label green"><i class="fas fa-crown icon"></i>main</span><span class="item-value green">passed</span></div>
 <div class="row"><span class="item-label green"><i class="fas fa-hammer icon"></i>develop</span><span class="item-value green">passed</span></div>
