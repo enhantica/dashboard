@@ -19,7 +19,7 @@
     }
     .card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(17em, 1fr));
       gap: 0;
       padding: 0;
       background-color: transparent;
@@ -34,7 +34,7 @@
       display: flex;
       flex-direction: column;
     }
-    .label {
+    .card-title {
       font-weight: 300;
       color: #ccc;
       display: flex;
@@ -59,6 +59,23 @@
       border-top: 1px solid #101010;
       font-size: 1em;
     }
+    .values .row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1em;
+      min-width: 0;
+    }
+    .values .item-label {
+      color: #ccc;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      min-width: 0;
+    }
+    .values .item-value {
+      white-space: nowrap;
+    }
     .values span img { vertical-align: middle; }
     .green { color: #6eb543; }
     .yellow-green { color: #b4cd32; }
@@ -76,99 +93,99 @@
 
   <div class="card-grid">
   <div class="card">
-  <div class="label"><i class="fas fa-vial"></i>Test code and package</div>
+  <div class="card-title"><i class="fas fa-vial"></i>Test code and package</div>
   <div class="values">
-<span class="green">main: passed</span>
-<span class="green">develop: passed</span>
-<span class="green">improve-mi: passed</span>
+<div class="row"><span class="item-label">main:</span><span class="item-value green">passed</span></div>
+<div class="row"><span class="item-label">develop:</span><span class="item-value green">passed</span></div>
+<div class="row"><span class="item-label">improve-mi:</span><span class="item-value green">passed</span></div>
   </div>
 </div>
 <div class="card">
-  <div class="label"><i class="fas fa-vial"></i>Test package on PyPI</div>
+  <div class="card-title"><i class="fas fa-vial"></i>Test package on PyPI</div>
   <div class="values">
-<span class="gray">main: unknown</span>
-<span class="gray">develop: unknown</span>
-<span class="gray">improve-mi: unknown</span>
+<div class="row"><span class="item-label">main:</span><span class="item-value gray">unknown</span></div>
+<div class="row"><span class="item-label">develop:</span><span class="item-value gray">unknown</span></div>
+<div class="row"><span class="item-label">improve-mi:</span><span class="item-value gray">unknown</span></div>
   </div>
 </div>
 <div class="card">
-  <div class="label"><i class="fas fa-gauge"></i>Code quality from CodeFactor.io</div>
+  <div class="card-title"><i class="fas fa-gauge"></i>Code quality (CodeFactor.io)</div>
   <div class="values">
-<span class="gray">main: unknown</span>
-<span class="green">develop: A</span>
-<span class="gray">improve-mi: unknown</span>
+<div class="row"><span class="item-label">main:</span><span class="item-value gray">unknown</span></div>
+<div class="row"><span class="item-label">develop:</span><span class="item-value green">A</span></div>
+<div class="row"><span class="item-label">improve-mi:</span><span class="item-value gray">unknown</span></div>
   </div>
 </div>
 <div class="card">
-  <div class="label"><i class="fas fa-gauge"></i>Maintainability index with radon</div>
+  <div class="card-title"><i class="fas fa-gauge"></i>Maintainability index (radon)</div>
   <div class="values">
-<span class="yellow-green">main: B (61)</span>
-<span class="yellow-green">develop: B (61)</span>
-<span class="yellow-green">improve-mi: B (74)</span>
+<div class="row"><span class="item-label">main:</span><span class="item-value yellow-green">B (61)</span></div>
+<div class="row"><span class="item-label">develop:</span><span class="item-value yellow-green">B (61)</span></div>
+<div class="row"><span class="item-label">improve-mi:</span><span class="item-value yellow-green">B (74)</span></div>
   </div>
 </div>
 <div class="card">
-  <div class="label"><i class="fas fa-gauge"></i>Cyclomatic complexity with radon</div>
+  <div class="card-title"><i class="fas fa-gauge"></i>Cyclomatic complexity (radon)</div>
   <div class="values">
-<span class="green">main: A (4.2)</span>
-<span class="green">develop: A (4.2)</span>
-<span class="green">improve-mi: A (3.8)</span>
+<div class="row"><span class="item-label">main:</span><span class="item-value green">A (4.2)</span></div>
+<div class="row"><span class="item-label">develop:</span><span class="item-value green">A (4.2)</span></div>
+<div class="row"><span class="item-label">improve-mi:</span><span class="item-value green">A (3.8)</span></div>
   </div>
 </div>
 <div class="card">
-  <div class="label"><i class="fas fa-file-code"></i>Source/Logical lines of code</div>
+  <div class="card-title"><i class="fas fa-file-code"></i>Source/Logical lines of code</div>
   <div class="values">
-<span class="yellow">main: 1.18 (1,190/1,009)</span>
-<span class="yellow">develop: 1.18 (1,190/1,009)</span>
-<span class="yellow">improve-mi: 1.17 (1,288/1,101)</span>
+<div class="row"><span class="item-label">main:</span><span class="item-value yellow">1.18 (1,190/1,009)</span></div>
+<div class="row"><span class="item-label">develop:</span><span class="item-value yellow">1.18 (1,190/1,009)</span></div>
+<div class="row"><span class="item-label">improve-mi:</span><span class="item-value yellow">1.19 (1,315/1,101)</span></div>
   </div>
 </div>
 <div class="card">
-  <div class="label"><i class="fas fa-file-code"></i>Number of files</div>
+  <div class="card-title"><i class="fas fa-file-code"></i>Number of files</div>
   <div class="values">
-<span class="blue">main: 5</span>
-<span class="blue">develop: 5</span>
-<span class="blue">improve-mi: 13</span>
+<div class="row"><span class="item-label">main:</span><span class="item-value blue">5</span></div>
+<div class="row"><span class="item-label">develop:</span><span class="item-value blue">5</span></div>
+<div class="row"><span class="item-label">improve-mi:</span><span class="item-value blue">13</span></div>
   </div>
 </div>
 <div class="card">
-  <div class="label"><i class="fas fa-file-code"></i>Number of functions</div>
+  <div class="card-title"><i class="fas fa-file-code"></i>Number of functions</div>
   <div class="values">
-<span class="blue">main: 90</span>
-<span class="blue">develop: 90</span>
-<span class="blue">improve-mi: 99</span>
+<div class="row"><span class="item-label">main:</span><span class="item-value blue">90</span></div>
+<div class="row"><span class="item-label">develop:</span><span class="item-value blue">90</span></div>
+<div class="row"><span class="item-label">improve-mi:</span><span class="item-value blue">99</span></div>
   </div>
 </div>
 <div class="card">
-  <div class="label"><i class="fas fa-square-poll-vertical"></i>Unit test coverage from Codecov.io</div>
+  <div class="card-title"><i class="fas fa-square-poll-vertical"></i>Unit test coverage (Codecov.io)</div>
   <div class="values">
-<span class="gray">main: unknown</span>
-<span class="gray">develop: unknown</span>
-<span class="gray">improve-mi: unknown</span>
+<div class="row"><span class="item-label">main:</span><span class="item-value gray">unknown</span></div>
+<div class="row"><span class="item-label">develop:</span><span class="item-value gray">unknown</span></div>
+<div class="row"><span class="item-label">improve-mi:</span><span class="item-value gray">unknown</span></div>
   </div>
 </div>
 <div class="card">
-  <div class="label"><i class="fas fa-square-poll-vertical"></i>Docstring coverage with interrogate</div>
+  <div class="card-title"><i class="fas fa-square-poll-vertical"></i>Docstring coverage (interrogate)</div>
   <div class="values">
-<span class="green">main: 95%</span>
-<span class="green">develop: 95%</span>
-<span class="yellow-green">improve-mi: 87%</span>
+<div class="row"><span class="item-label">main:</span><span class="item-value green">95%</span></div>
+<div class="row"><span class="item-label">develop:</span><span class="item-value green">95%</span></div>
+<div class="row"><span class="item-label">improve-mi:</span><span class="item-value yellow-green">87%</span></div>
   </div>
 </div>
 <div class="card">
-  <div class="label"><i class="fas fa-lock"></i>Scan security</div>
+  <div class="card-title"><i class="fas fa-lock"></i>Scan security</div>
   <div class="values">
-<span class="green">main: passed</span>
-<span class="green">develop: passed</span>
-<span class="gray">improve-mi: unknown</span>
+<div class="row"><span class="item-label">main:</span><span class="item-value green">passed</span></div>
+<div class="row"><span class="item-label">develop:</span><span class="item-value green">passed</span></div>
+<div class="row"><span class="item-label">improve-mi:</span><span class="item-value gray">unknown</span></div>
   </div>
 </div>
 <div class="card">
-  <div class="label"><i class="fas fa-rocket"></i>Publish to PyPI</div>
+  <div class="card-title"><i class="fas fa-rocket"></i>Publish to PyPI</div>
   <div class="values">
-<span class="gray">main: unknown</span>
-<span class="gray">develop: unknown</span>
-<span class="gray">improve-mi: unknown</span>
+<div class="row"><span class="item-label">main:</span><span class="item-value gray">unknown</span></div>
+<div class="row"><span class="item-label">develop:</span><span class="item-value gray">unknown</span></div>
+<div class="row"><span class="item-label">improve-mi:</span><span class="item-value gray">unknown</span></div>
   </div>
 </div>
   </div>
