@@ -19,7 +19,7 @@
     }
     .card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(17em, 1fr));
       gap: 0;
       padding: 0;
       background-color: transparent;
@@ -30,21 +30,21 @@
       overflow: hidden;
       border: 1px solid #111;
       background-color: transparent;
-      margin: 0.5em;
+      margin: 0.75em;
       display: flex;
       flex-direction: column;
     }
-    .label {
+    .card-title {
       font-weight: 300;
       color: #ccc;
       display: flex;
       align-items: center;
-      gap: 0.5em;
+      gap: 0.75em;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
       background-color: #202020;
-      padding: 0.7em .7em;
+      padding: 1em 1em;
       border-radius: 0;
       margin: 0;
       font-size: 1em;
@@ -54,14 +54,41 @@
       flex-direction: column;
       font-weight: 300;
       gap: 0.5em;
-      padding: 0.7em 0.7em;
+      padding: 1em 1em;
       background-color: #1a1a1a;
       border-top: 1px solid #101010;
       font-size: 1em;
     }
+    .values .row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 1em;
+      min-width: 0;
+    }
+    .values .item-label {
+      color: #ccc;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      min-width: 0;
+    }
+    /* Allow label color classes to take effect over base label color */
+    .values .item-label.green { color: #6eb543; }
+    .values .item-label.yellow-green { color: #b4cd32; }
+    .values .item-label.yellow { color: #e8b745; }
+    .values .item-label.orange { color: #f39c12; }
+    .values .item-label.red { color: #e46259; }
+    .values .item-label.blue { color: #71b2f0; }
+    .values .item-label.gray { color: #757575; }
+    /* Icons inherit label color so they colorize accordingly */
+    .values .item-label .icon { color: currentColor; margin-right: 0.5em; }
+    .values .item-value {
+      white-space: nowrap;
+    }
     .values span img { vertical-align: middle; }
     .green { color: #6eb543; }
-    .yellow-green { color: #9acd32; }
+    .yellow-green { color: #b4cd32; }
     .yellow { color: #e8b745; }
     .orange { color: #f39c12; }
     .red { color: #e46259; }
@@ -76,99 +103,99 @@
 
   <div class="card-grid">
   <div class="card">
-  <div class="label"><i class="fas fa-vial"></i>Test code and package</div>
+  <div class="card-title"><i class="fas fa-vial"></i>Test code and package</div>
   <div class="values">
-<span class="green">main: passed</span>
-<span class="green">develop: passed</span>
-<span class="green">main: passed</span>
+<div class="row"><span class="item-label green"><i class="fas fa-crown icon"></i>main</span><span class="item-value green">passed</span></div>
+<div class="row"><span class="item-label green"><i class="fas fa-hammer icon"></i>develop</span><span class="item-value green">passed</span></div>
+<div class="row"><span class="item-label green"><i class="fas fa-code-branch icon"></i>main</span><span class="item-value green">passed</span></div>
   </div>
 </div>
 <div class="card">
-  <div class="label"><i class="fas fa-vial"></i>Test package on PyPI</div>
+  <div class="card-title"><i class="fas fa-vial"></i>Test package (PyPI.org)</div>
   <div class="values">
-<span class="gray">main: unknown</span>
-<span class="gray">develop: unknown</span>
-<span class="gray">main: unknown</span>
+<div class="row"><span class="item-label gray"><i class="fas fa-crown icon"></i>main</span><span class="item-value gray">unknown</span></div>
+<div class="row"><span class="item-label gray"><i class="fas fa-hammer icon"></i>develop</span><span class="item-value gray">unknown</span></div>
+<div class="row"><span class="item-label gray"><i class="fas fa-code-branch icon"></i>main</span><span class="item-value gray">unknown</span></div>
   </div>
 </div>
 <div class="card">
-  <div class="label"><i class="fas fa-gauge"></i>Code quality from CodeFactor.io</div>
+  <div class="card-title"><i class="fas fa-gauge"></i>Code quality (CodeFactor.io)</div>
   <div class="values">
-<span class="green">main: A</span>
-<span class="green">develop: A</span>
-<span class="green">main: A</span>
+<div class="row"><span class="item-label gray"><i class="fas fa-crown icon"></i>main</span><span class="item-value gray">unknown</span></div>
+<div class="row"><span class="item-label green"><i class="fas fa-hammer icon"></i>develop</span><span class="item-value green">A</span></div>
+<div class="row"><span class="item-label green"><i class="fas fa-code-branch icon"></i>main</span><span class="item-value green">A</span></div>
   </div>
 </div>
 <div class="card">
-  <div class="label"><i class="fas fa-gauge"></i>Maintainability index with radon</div>
+  <div class="card-title"><i class="fas fa-gauge"></i>Maintainability index (radon)</div>
   <div class="values">
-<span class="yellow-green">main: B (61)</span>
-<span class="yellow-green">develop: B (61)</span>
-<span class="yellow-green">main: B (61)</span>
+<div class="row"><span class="item-label yellow-green"><i class="fas fa-crown icon"></i>main</span><span class="item-value yellow-green">B (74)</span></div>
+<div class="row"><span class="item-label yellow-green"><i class="fas fa-hammer icon"></i>develop</span><span class="item-value yellow-green">B (74)</span></div>
+<div class="row"><span class="item-label yellow-green"><i class="fas fa-code-branch icon"></i>main</span><span class="item-value yellow-green">B (74)</span></div>
   </div>
 </div>
 <div class="card">
-  <div class="label"><i class="fas fa-gauge"></i>Cyclomatic complexity with radon</div>
+  <div class="card-title"><i class="fas fa-gauge"></i>Cyclomatic complexity (radon)</div>
   <div class="values">
-<span class="green">main: A (4.2)</span>
-<span class="green">develop: A (4.2)</span>
-<span class="green">main: A (4.2)</span>
+<div class="row"><span class="item-label green"><i class="fas fa-crown icon"></i>main</span><span class="item-value green">A (3.9)</span></div>
+<div class="row"><span class="item-label green"><i class="fas fa-hammer icon"></i>develop</span><span class="item-value green">A (3.9)</span></div>
+<div class="row"><span class="item-label green"><i class="fas fa-code-branch icon"></i>main</span><span class="item-value green">A (3.9)</span></div>
   </div>
 </div>
 <div class="card">
-  <div class="label"><i class="fas fa-file-code"></i>Source/Logical lines of code</div>
+  <div class="card-title"><i class="fas fa-file-code"></i>Source/Logical lines of code</div>
   <div class="values">
-<span class="yellow">main: 1.18 (1,190/1,009)</span>
-<span class="yellow">develop: 1.18 (1,190/1,009)</span>
-<span class="yellow">main: 1.18 (1,190/1,009)</span>
+<div class="row"><span class="item-label yellow"><i class="fas fa-crown icon"></i>main</span><span class="item-value yellow">1.21 (1,334/1,102)</span></div>
+<div class="row"><span class="item-label yellow"><i class="fas fa-hammer icon"></i>develop</span><span class="item-value yellow">1.21 (1,334/1,102)</span></div>
+<div class="row"><span class="item-label yellow"><i class="fas fa-code-branch icon"></i>main</span><span class="item-value yellow">1.21 (1,334/1,102)</span></div>
   </div>
 </div>
 <div class="card">
-  <div class="label"><i class="fas fa-file-code"></i>Number of files</div>
+  <div class="card-title"><i class="fas fa-file-code"></i>Number of files</div>
   <div class="values">
-<span class="blue">main: 5</span>
-<span class="blue">develop: 5</span>
-<span class="blue">main: 5</span>
+<div class="row"><span class="item-label blue"><i class="fas fa-crown icon"></i>main</span><span class="item-value blue">13</span></div>
+<div class="row"><span class="item-label blue"><i class="fas fa-hammer icon"></i>develop</span><span class="item-value blue">13</span></div>
+<div class="row"><span class="item-label blue"><i class="fas fa-code-branch icon"></i>main</span><span class="item-value blue">13</span></div>
   </div>
 </div>
 <div class="card">
-  <div class="label"><i class="fas fa-file-code"></i>Number of functions</div>
+  <div class="card-title"><i class="fas fa-file-code"></i>Number of functions</div>
   <div class="values">
-<span class="blue">main: 90</span>
-<span class="blue">develop: 90</span>
-<span class="blue">main: 90</span>
+<div class="row"><span class="item-label blue"><i class="fas fa-crown icon"></i>main</span><span class="item-value blue">99</span></div>
+<div class="row"><span class="item-label blue"><i class="fas fa-hammer icon"></i>develop</span><span class="item-value blue">99</span></div>
+<div class="row"><span class="item-label blue"><i class="fas fa-code-branch icon"></i>main</span><span class="item-value blue">99</span></div>
   </div>
 </div>
 <div class="card">
-  <div class="label"><i class="fas fa-square-poll-vertical"></i>Unit test coverage from Codecov.io</div>
+  <div class="card-title"><i class="fas fa-square-poll-vertical"></i>Unit test coverage (Codecov.io)</div>
   <div class="values">
-<span class="gray">main: unknown</span>
-<span class="gray">develop: unknown</span>
-<span class="gray">main: unknown</span>
+<div class="row"><span class="item-label gray"><i class="fas fa-crown icon"></i>main</span><span class="item-value gray">unknown</span></div>
+<div class="row"><span class="item-label gray"><i class="fas fa-hammer icon"></i>develop</span><span class="item-value gray">unknown</span></div>
+<div class="row"><span class="item-label gray"><i class="fas fa-code-branch icon"></i>main</span><span class="item-value gray">unknown</span></div>
   </div>
 </div>
 <div class="card">
-  <div class="label"><i class="fas fa-square-poll-vertical"></i>Docstring coverage with interrogate</div>
+  <div class="card-title"><i class="fas fa-square-poll-vertical"></i>Docstring coverage (interrogate)</div>
   <div class="values">
-<span class="green">main: 95%</span>
-<span class="green">develop: 95%</span>
-<span class="green">main: 95%</span>
+<div class="row"><span class="item-label yellow-green"><i class="fas fa-crown icon"></i>main</span><span class="item-value yellow-green">87%</span></div>
+<div class="row"><span class="item-label yellow-green"><i class="fas fa-hammer icon"></i>develop</span><span class="item-value yellow-green">87%</span></div>
+<div class="row"><span class="item-label yellow-green"><i class="fas fa-code-branch icon"></i>main</span><span class="item-value yellow-green">87%</span></div>
   </div>
 </div>
 <div class="card">
-  <div class="label"><i class="fas fa-lock"></i>Scan security</div>
+  <div class="card-title"><i class="fas fa-lock"></i>Scan security</div>
   <div class="values">
-<span class="green">main: passed</span>
-<span class="green">develop: passed</span>
-<span class="gray">main: unknown</span>
+<div class="row"><span class="item-label green"><i class="fas fa-crown icon"></i>main</span><span class="item-value green">passed</span></div>
+<div class="row"><span class="item-label green"><i class="fas fa-hammer icon"></i>develop</span><span class="item-value green">passed</span></div>
+<div class="row"><span class="item-label gray"><i class="fas fa-code-branch icon"></i>main</span><span class="item-value gray">unknown</span></div>
   </div>
 </div>
 <div class="card">
-  <div class="label"><i class="fas fa-rocket"></i>Publish to PyPI</div>
+  <div class="card-title"><i class="fas fa-rocket"></i>Publish (PyPI.org)</div>
   <div class="values">
-<span class="gray">main: unknown</span>
-<span class="gray">develop: unknown</span>
-<span class="gray">main: unknown</span>
+<div class="row"><span class="item-label gray"><i class="fas fa-crown icon"></i>main</span><span class="item-value gray">unknown</span></div>
+<div class="row"><span class="item-label gray"><i class="fas fa-hammer icon"></i>develop</span><span class="item-value gray">unknown</span></div>
+<div class="row"><span class="item-label gray"><i class="fas fa-code-branch icon"></i>main</span><span class="item-value gray">unknown</span></div>
   </div>
 </div>
   </div>
